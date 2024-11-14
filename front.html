@@ -9,20 +9,23 @@
     <style>
         body {
             background-color: rgb(32, 32, 32);
-            zoom: 150%;
+            zoom: 180%;
         }
         
         .calculator-container {
             max-width: 40%;
             margin: auto;
             padding-top: 50px;
-            margin: auto;
             align-items: center;
             justify-content: center;
         }
         
         .calculator-container h3 {
             color: white;
+        }
+        
+        .botoes {
+            padding-top: 0.2rem;
         }
         
         .display-bar {
@@ -72,8 +75,12 @@
         }
         /* Funções científicas inicialmente ocultas */
         
-        .scientific-functions {
+        .funcoes-cientificas {
+            max-width: 100%;
+            margin: auto;
+            padding-top: 0.4rem;
             display: none;
+            /* Ocultando inicialmente */
         }
     </style>
 </head>
@@ -84,56 +91,31 @@
         <h3 class="text-center">Calculadora dos Guri</h3>
         <input type="text" id="display" class="form-control text-end display-bar" disabled>
 
-        <div class="row g-2">
-            <!-- Linha 1: Botão de Limpar (C) e Divisão -->
-            <button class="col-3 btn btn-secondary" onclick="clearDisplay()">C</button>
-            <button class="col-3 btn btn-operation" onclick="pressKey('+')">+</button>
-            <button class="col-3 btn btn-operation" onclick="pressKey('-')">-</button>
-            <button class="col-2 btn btn-operation">Celo</button>
-
-
+        <div class="row g-2 botoes">
+            <button class="col-3 btn btn-secondary" onclick="clearDisplay()" title="Clear(Limpar)">C</button>
+            <button class="col-3 btn btn-operation" onclick="pressKey('+')" title="Adição">+</button>
+            <button class="col-3 btn btn-operation" onclick="pressKey('-')" title="Subtração">-</button>
+            <button class="col-2 btn btn-operation" onclick="pressKey('**')" title="Potência(elevado)">^</button>
 
             <button class="col-3 btn btn-number" onclick="pressKey('7')">7</button>
             <button class="col-3 btn btn-number" onclick="pressKey('8')">8</button>
             <button class="col-3 btn btn-number" onclick="pressKey('9')">9</button>
-            <button class="col-2 btn btn-operation" onclick="pressKey('/')">/</button>
+            <button class="col-2 btn btn-operation" onclick="pressKey('/')" title="Divisão">/</button>
 
-
-            <!-- Linha 2: Multiplicação -->
             <button class="col-3 btn btn-number" onclick="pressKey('4')">4</button>
             <button class="col-3 btn btn-number" onclick="pressKey('5')">5</button>
             <button class="col-3 btn btn-number" onclick="pressKey('6')">6</button>
-            <button class="col-2 btn btn-operation" onclick="pressKey('*')">x</button>
+            <button class="col-2 btn btn-operation" onclick="pressKey('*')" title="Multiplicação">x</button>
 
-
-
-            <!-- Linha 3: Subtração -->
             <button class="col-3 btn btn-number" onclick="pressKey('1')">1</button>
             <button class="col-3 btn btn-number" onclick="pressKey('2')">2</button>
             <button class="col-3 btn btn-number" onclick="pressKey('3')">3</button>
-            <button class="col-2 btn btn-operation" onclick="pressKey('%')">%</button>
+            <button class="col-2 btn btn-operation" onclick="pressKey('%')" title="Porcentagem">%</button>
 
-
-
-            <!-- Linha 4: Zero, Decimal, Soma e Igual -->
-            <button class="col-3 btn btn-number" onclick="pressKey('0')">0</button>
+            <button class="col-3 btn btn-number" onclick="window.open('https://github.com/vlcelo/', '_blank');" target="_blank">Celo</button>
             <button class="col-3 btn btn-number" onclick="pressKey('.')">.</button>
-            <button class="col-5 btn btn-success" onclick="calculaResultado()">=</button>
-
-        </div>
-
-        <button class="btn btn-info mt-3 w-100" onclick="chamaCientifica()">Científica</button>
-
-        <!-- Scientific calculator buttons -->
-        <div class="row g-2 mt-2 funcoes-cientificas">
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.sin(')">sin</button>
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.cos(')">cos</button>
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.tan(')">tan</button>
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.sqrt(')">√</button>
-
-            <button class="col-3 btn btn-warning" onclick="pressKey('**')">^</button>
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.PI')">π</button>
-            <button class="col-3 btn btn-warning" onclick="pressKey('Math.E')">e</button>
+            <button class="col-3 btn btn-number" onclick="pressKey('0')">0</button>
+            <button class="col-2 btn btn-success" onclick="calculaResultado()" title="Resultado">=</button>
         </div>
     </div>
 
